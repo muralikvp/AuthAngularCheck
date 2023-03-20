@@ -12,13 +12,14 @@ export class LoginComponent implements OnInit {
 
   messageclass = ''
   message = ''
-  Customerid: any;
+  Customerid!: number;
   editdata: any;
   responsedata: any;
 
   constructor(private service: AuthService,private route:Router) {
     localStorage.clear();
   }
+
   Login = new FormGroup({
     username: new FormControl("", [Validators.required,Validators.minLength(2)]),
     password: new FormControl("", Validators.required)
@@ -34,9 +35,16 @@ export class LoginComponent implements OnInit {
         if(result!=null){
           this.responsedata=result;
           localStorage.setItem('token',this.responsedata.token);
+          localStorage.setItem('Role',"Admin");
+
           this.route.navigate(['']);
         }
+        else
+        {
+          console.log("Invalid Login");
+        }
       });
+      console.log("After Subscribe");
     }
   }
 

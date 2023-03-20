@@ -19,11 +19,11 @@ export class AuthService {
     return localStorage.getItem('token') || '';
   }
   HaveAccess() {
-    var loggintoken = localStorage.getItem('token') || '';
-    var _extractedtoken = loggintoken.split('.')[1];
-    var _atobdata = atob(_extractedtoken);
-    var _finaldata = JSON.parse(_atobdata);
-    if (_finaldata.username == "kminchelle") {
+    var role = localStorage.getItem('Role') || '';
+    // var _extractedtoken = role.split('.')[1];
+    // var _atobdata = atob(_extractedtoken);
+    // var _finaldata = JSON.parse(_atobdata);
+    if (role == "Admin") {
       return true;
     } else {
       alert('you not having access');

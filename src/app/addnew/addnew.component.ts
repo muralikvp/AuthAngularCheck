@@ -40,7 +40,7 @@ export class AddnewComponent implements OnInit {
       this.service.SaveCustomer(this.register.value).subscribe(result => {
         if (result != null) {
           this.responsedata = result;
-          if (this.responsedata.message == 'added') {
+          if (this.responsedata.id > 1 ) {
             this.message = "Customer saved successfully."
             this.messageclass = "sucess"
             this.clearCustomer();

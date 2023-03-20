@@ -14,7 +14,7 @@ apiurl='https://dummyjson.com/users';
      return this.http.get(this.apiurl);
    }
    SaveCustomer(customedata:any){
-    return this.http.post(this.apiurl,customedata);
+    return this.http.post(this.apiurl+"/add",customedata);
    }
    LoadCustomerbycode(id:any){
     return this.http.get(this.apiurl+'/'+id);

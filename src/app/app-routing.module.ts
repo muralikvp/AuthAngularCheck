@@ -9,17 +9,20 @@ import { AuthGuard } from './shared/auth.guard';
 import { RoleGuard } from './shared/role.guard';
 
 const routes: Routes = [
-  { path: "", component: HomeComponent,canActivate:[AuthGuard] },
+    { path: "", component: HomeComponent,canActivate:[AuthGuard] },
   {
     path: "customer", component: CustomerComponent,
-    children: [{
+    children: [
+      {
       path: "", component: ListingComponent
     },
     { path: "create", component: AddnewComponent },
     { path: "Edit/:id", component: AddnewComponent }
-    ],canActivate:[AuthGuard,RoleGuard]
+    ]
+     ,canActivate:[AuthGuard,RoleGuard]
   },
-  {path:"login",component:LoginComponent}
+  {path:"login",component:LoginComponent},
+  {path:"**",component:LoginComponent}
 ];
 
 @NgModule({
