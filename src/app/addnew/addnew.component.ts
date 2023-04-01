@@ -51,7 +51,6 @@ export class AddnewComponent implements OnInit {
             this.message = "Failed to Save"
             this.messageclass = "error"
           }
-
         }
       });
     } else {
@@ -74,7 +73,7 @@ export class AddnewComponent implements OnInit {
       this.editdata = data;
       this.register = new FormGroup({
         id: new FormControl(this.editdata.id),
-        name: new FormControl(this.editdata.name),
+        name: new FormControl(this.editdata.firstName),
         email: new FormControl(this.editdata.email),
         phone: new FormControl(this.editdata.phone),
       });

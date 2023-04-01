@@ -11,11 +11,25 @@ export class TokenInterceptorService implements HttpInterceptor {
   constructor(private inject:Injector) {}
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     let authservice=this.inject.get(AuthService);
-    let jwtToken = req.clone({
-      setHeaders: {
-        Authorization: 'bearer '+authservice.GetToken()
-      }
-    });
-    return next.handle(jwtToken);
+
+    if(req.url == "http://localhost:5299/api/TodoItem")
+    {
+      let jwtToken = req.clone({
+        setHeaders: {
+          // Authorization: 'bearer '+authservice.GetToken()
+        }
+      });
+      return next.handle(jwtToken);
+    }
+    else
+    {
+      let jwtToken = req.clone({
+        setHeaders: {
+           Authorization: 'bearer '+authservice.GetToken()
+        }
+      });
+      return next.handle(jwtToken);
+    }
+
   }
 }

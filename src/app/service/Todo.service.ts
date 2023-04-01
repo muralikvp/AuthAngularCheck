@@ -5,23 +5,20 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class CustomerService {
-apiurl='https://dummyjson.com/users';
-
+export class TodoService {
+apiurl='http://localhost:5299/api/TodoItem';
   constructor(private http:HttpClient) {
    }
-
-   LoadCustomer(): Observable<any> {
+   LoadTodo(): Observable<any> {
      return this.http.get(this.apiurl);
    }
-   SaveCustomer(customedata:any){
-    let data = this.http.post(this.apiurl+"/add",customedata);
-    return data;
+   SaveTodo(todoData:any){
+    return this.http.post(this.apiurl,todoData);
    }
-   LoadCustomerbycode(id:any){
+   LoadTodobycode(id:any){
     return this.http.get(this.apiurl+'/'+id);
   }
-  RemoveCustomer(id:any){
+  RemoveTodo(id:any){
     return this.http.delete(this.apiurl+'/'+id);
   }
 }

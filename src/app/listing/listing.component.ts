@@ -8,18 +8,20 @@ import { CustomerService} from '../service/customer.service'
 })
 export class ListingComponent implements OnInit {
 
-  constructor(private service:CustomerService) { 
-    this.LoadCustomer();
+  constructor(private service:CustomerService) {
   }
-customerdata:any;
+
+  customerdata:any;
+
   ngOnInit(): void {
+    this.LoadCustomer();
   }
 
   LoadCustomer(){
     this.service.LoadCustomer().subscribe(data=>{
       this.customerdata=data.users;
     });
-   
+
   }
 
   delete(ID:any){

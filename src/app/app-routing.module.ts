@@ -7,26 +7,30 @@ import { ListingComponent } from './listing/listing.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './shared/auth.guard';
 import { RoleGuard } from './shared/role.guard';
+import { TodoComponent } from './todo/todo.component';
 
 const routes: Routes = [
-    { path: "", component: HomeComponent,canActivate:[AuthGuard] },
+  { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'todo', component: TodoComponent, canActivate: [AuthGuard] },
   {
-    path: "customer", component: CustomerComponent,
+    path: 'customer',
+    component: CustomerComponent,
     children: [
       {
-      path: "", component: ListingComponent
-    },
-    { path: "create", component: AddnewComponent },
-    { path: "Edit/:id", component: AddnewComponent }
-    ]
-     ,canActivate:[AuthGuard,RoleGuard]
+        path: '',
+        component: ListingComponent,
+      },
+      { path: 'create', component: AddnewComponent },
+      { path: 'Edit/:id', component: AddnewComponent },
+    ],
+    canActivate: [AuthGuard, RoleGuard],
   },
-  {path:"login",component:LoginComponent},
-  {path:"**",component:LoginComponent}
+  { path: 'login', component: LoginComponent },
+  { path: '**', component: LoginComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
