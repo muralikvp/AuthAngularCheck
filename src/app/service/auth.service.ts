@@ -7,7 +7,6 @@ import { Injectable } from '@angular/core';
 export class AuthService {
   apiurl = 'https://dummyjson.com/auth/login';
   constructor(private http: HttpClient) {
-
   }
   ProceedLogin(UserCred: any) {
     return this.http.post(this.apiurl, UserCred);

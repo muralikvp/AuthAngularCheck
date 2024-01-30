@@ -11,7 +11,13 @@ import { TodoComponent } from './todo/todo.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuard] },
-  { path: 'todo', component: TodoComponent, canActivate: [AuthGuard] },
+  { path: 'todo', component: TodoComponent,
+  children: [
+    {
+      path: 'Polo',
+      component: ListingComponent,
+    }],
+  canActivate: [AuthGuard] },
   {
     path: 'customer',
     component: CustomerComponent,

@@ -14,6 +14,7 @@ import {CookieService} from 'ngx-cookie-service';
 import { LoginComponent } from './login/login.component'
 import { TokenInterceptorService } from './service/token-interceptor.service';
 import { TodoComponent } from './todo/todo.component';
+import { LoginCustComponent } from './login-cust/login-cust.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { TodoComponent } from './todo/todo.component';
     ListingComponent,
     AddnewComponent,
     LoginComponent,
-    TodoComponent
+    TodoComponent,
+    LoginCustComponent
   ],
   imports: [
     BrowserModule,

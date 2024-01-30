@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
   messageclass = ''
   message = ''
   Customerid!: number;
+
   editdata: any;
   responsedata: any;
 
@@ -38,6 +39,8 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('Role',"Admin");
 
           this.route.navigate(['']);
+
+
         }
         else
         {

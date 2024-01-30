@@ -79,7 +79,6 @@ export class AddnewComponent implements OnInit {
       });
     });
 
-
   }
 
   get name(){
